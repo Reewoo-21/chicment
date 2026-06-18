@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 명품 페르소나 찾기 | 시크먼트</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter & Playfair Display for Premium Look, Noto Sans KR for Korean -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -71,6 +68,7 @@
             width: 120px;
             height: 120px;
             box-shadow: 5px 5px 0px 0px #211D19;
+            transition: background-color 0.4s ease, border-color 0.4s ease;
         }
         .ending-card {
             --result-accent: #B88A2C;
@@ -348,221 +346,24 @@
         .friend-mascot.cat { --fur: #D9C1AE; }
         .result-purple {
             --result-accent: #8D65B7;
-            --result-soft: #F4EDF8;
+            --result-soft: #FFFDFF;
         }
         .result-hero-paper {
-            background:
-                radial-gradient(circle, rgba(152,99,199,.18) 0 1px, transparent 1.3px),
-                linear-gradient(180deg, #FFFDFF 0%, #F8F0FF 100%);
-            background-size: 14px 14px, auto;
-        }
-        .result-mascot-panel {
-            background: linear-gradient(180deg, #FFF8E8 0%, #F7EDFF 100%);
-        }
-        .mascot-scene.compact {
-            width: 210px;
-            height: 160px;
-            transform: scale(.95);
-        }
-        .result-check {
-            display: inline-flex;
-            width: 17px;
-            height: 17px;
-            flex: 0 0 17px;
-            align-items: center;
-            justify-content: center;
-            border: 1.5px solid var(--result-accent);
-            border-radius: 3px;
-            color: var(--result-accent);
-            font-size: 10px;
-            margin-top: 2px;
-        }
-        .result-commerce-box {
-            border-color: color-mix(in srgb, var(--result-accent) 62%, #ffffff 38%);
-            background: rgba(251, 247, 255, .78);
-        }
-        .product-thumb {
-            width: 66px;
-            height: 66px;
-            flex: 0 0 66px;
-            border: 2px solid #211D19;
-            border-radius: 999px;
-            background: #FFFCF6;
-        }
-        .purple-cta {
-            background: var(--result-accent);
-            box-shadow: 0 4px 0 0 color-mix(in srgb, var(--result-accent) 55%, #211D19 45%);
-        }
-        .section-divider {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--result-accent);
-            font-size: 13px;
-            font-weight: 900;
-        }
-        .section-divider::before,
-        .section-divider::after {
-            content: '';
-            height: 1px;
-            flex: 1;
-            background: var(--result-accent);
-        }
-        .friend-card {
-            border-color: #D9C9E8;
-        }
-        .share-btn {
-            width: 40px;
-            height: 40px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #211D19;
-            border-radius: 999px;
-            background: #FFFCF6;
-            color: #211D19;
-            font-size: 16px;
-            transition: transform .15s ease;
-        }
-        .share-btn:active { transform: scale(.94); }
-        /* Ending page polish: unified surface + cleaner purple hierarchy */
-        .ending-card {
-            --result-accent: #8D65B7;
-            --result-soft: #FFFDFF;
-            background: #FFFDFF;
-            box-shadow: 5px 5px 0 0 #211D19;
-        }
-        .ending-card::before {
-            opacity: .2;
-            background:
-                radial-gradient(circle, rgba(152,99,199,.12) 0 1px, transparent 1.2px);
-            background-size: 16px 16px;
-            mix-blend-mode: normal;
-        }
-        .result-hero-paper,
-        .result-mascot-panel,
-        .result-commerce-box,
-        .friend-card {
-            background: #FFFDFF;
-        }
-        .result-mascot-panel {
-            border-radius: 18px;
-        }
-        .result-pill {
-            color: #7E4DB0;
-            border-color: rgba(152,99,199,.42);
-            background: #FFFDFF;
-        }
-        .result-commerce-box {
-            border-color: rgba(152,99,199,.45);
-            box-shadow: 0 0 0 1px rgba(152,99,199,.08), 0 10px 24px rgba(33,29,25,.04);
-        }
-        .product-thumb {
-            border-color: rgba(33,29,25,.9);
-            background: #FFFDFF;
-        }
-        .purple-cta {
-            background: #8D65B7;
-            box-shadow: none;
-        }
-        .purple-cta:hover {
-            background: #8755B7;
-        }
-        .section-divider {
-            color: #8D65B7;
-        }
-        .section-divider::before,
-        .section-divider::after {
-            background: rgba(152,99,199,.5);
-        }
-        .friend-card {
-            border: 1px solid rgba(152,99,199,.45);
-            border-radius: 16px;
-            box-shadow: 0 0 0 1px rgba(152,99,199,.08), 0 10px 24px rgba(33,29,25,.04);
-        }
-        .share-btn {
-            border-color: #211D19;
-            background: #FFFDFF;
-        }
-        #result-cta {
-            border-radius: 14px;
-            box-shadow: 0 5px 0 0 #1A1A1A;
-        }
-        /* Requested ending refinements */
-        .result-hero-paper,
-        .result-mascot-panel {
             background: transparent !important;
         }
         .result-mascot-panel {
+            background: transparent !important;
             border-radius: 0;
         }
         .result-image-divider {
             height: 1px;
             margin: 6px 24px 0;
-            background: rgba(152, 99, 199, .62);
+            background: rgba(141, 101, 183, 0.62);
         }
         .result-commerce-box {
             position: relative;
             overflow: hidden;
-            background:
-                radial-gradient(circle at 101% 0%, rgba(152,99,199,.12) 0 56px, transparent 57px),
-                linear-gradient(135deg, #FFFDFF 0%, #F7F1FF 52%, #FFFDFF 100%) !important;
-            border-color: rgba(152,99,199,.46);
-        }
-        .result-commerce-box::after {
-            content: '';
-            position: absolute;
-            right: -28px;
-            top: -30px;
-            width: 92px;
-            height: 92px;
-            border: 1px solid rgba(152,99,199,.24);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .result-commerce-box > * {
-            position: relative;
-            z-index: 1;
-        }
-        /* Final ending color and product-card layout refinements */
-        .result-purple {
-            --result-accent: #8D65B7;
-            --result-soft: #FFFDFF;
-        }
-        .ending-card,
-        #view-result,
-        .result-hero-paper,
-        .result-mascot-panel,
-        .friend-card {
-            background: #FFFDFF !important;
-        }
-        .result-pill,
-        .share-btn,
-        .product-thumb {
-            background: #FFFDFF !important;
-        }
-        .result-accent {
-            color: #8D65B7;
-        }
-        .result-pill {
-            color: #8D65B7;
-            border-color: rgba(141,101,183,.42);
-        }
-        .result-image-divider {
-            background: rgba(141,101,183,.62);
-        }
-        .result-check {
-            border-color: #8D65B7;
-            color: #8D65B7;
-        }
-        .result-commerce-box {
-            background:
-                radial-gradient(circle at 0% 0%, rgba(141,101,183,.20) 0 0, rgba(141,101,183,.14) 0 110px, rgba(141,101,183,.06) 210px, transparent 430px),
-                linear-gradient(135deg, rgba(141,101,183,.14) 0%, rgba(255,253,255,.92) 46%, #FFFDFF 100%) !important;
-            border-color: rgba(141,101,183,.46);
-        }
-        .result-commerce-box::after {
-            border-color: rgba(141,101,183,.22);
+            border-color: rgba(141, 101, 183, 0.46);
         }
         .product-grid {
             align-items: stretch;
@@ -572,7 +373,6 @@
             padding: 18px 12px 16px;
             border: 1px solid rgba(33,29,25,.18);
             border-radius: 16px;
-            background: rgba(255,253,255,.78);
             text-align: center;
             box-shadow: 0 10px 18px rgba(33,29,25,.06);
         }
@@ -588,110 +388,42 @@
         .purple-cta:hover {
             background: #7F57AA;
         }
-        .section-divider,
-        .section-divider::before,
-        .section-divider::after {
-            color: #8D65B7;
-        }
-        .section-divider::before,
-        .section-divider::after {
-            background: rgba(141,101,183,.55);
-        }
         .friend-card {
-            border-color: rgba(141,101,183,.36);
+            border: 1px solid rgba(141, 101, 183, 0.36);
+            border-radius: 16px;
+            box-shadow: 0 0 0 1px rgba(141, 101, 183, 0.08), 0 10px 24px rgba(33,29,25,.04);
         }
-        /* Outer result surface cleanup */
-        #view-result .result-hero-paper,
-        #view-result .result-mascot-panel,
-        #view-result .result-commerce-box,
-        #view-result .product-card,
-        #view-result .friend-card {
-            background: transparent !important;
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #211D19;
+            border-radius: 999px;
+            color: #211D19;
+            font-size: 16px;
+            transition: transform .15s ease;
         }
-        /* Center card gradient adjustment */
-        .result-commerce-box {
-            background:
-                radial-gradient(circle at 0% 0%, rgba(141,101,183,.22) 0 0, rgba(141,101,183,.18) 0 150px, rgba(141,101,183,.10) 300px, rgba(141,101,183,.04) 440px, transparent 620px),
-                linear-gradient(135deg, rgba(141,101,183,.12) 0%, rgba(255,253,255,.94) 62%, #FFFDFF 100%) !important;
-        }
-        .result-commerce-box::after {
-            display: none;
-        }
-        /* Restore main card purple gradient */
-        #view-result .result-commerce-box {
-            background:
-                linear-gradient(135deg, rgba(141,101,183,.26) 0%, rgba(141,101,183,.16) 28%, rgba(141,101,183,.07) 52%, rgba(255,253,255,.96) 78%, #FFFDFF 100%) !important;
-        }
-        /* Dynamic result accent colors */
-        #view-result {
-            --result-accent: #8D65B7;
-            --result-soft: #FFFDFF;
-        }
-        #view-result .result-accent {
-            color: var(--result-accent) !important;
-        }
-        #view-result .result-pill {
-            color: var(--result-accent) !important;
-            border-color: color-mix(in srgb, var(--result-accent) 42%, #ffffff 58%) !important;
-            background: color-mix(in srgb, var(--result-soft) 72%, #FFFDFF 28%) !important;
-        }
-        #view-result .result-image-divider {
-            background: color-mix(in srgb, var(--result-accent) 62%, transparent) !important;
-        }
-        #view-result .result-check {
-            border-color: var(--result-accent) !important;
-            color: var(--result-accent) !important;
-        }
-        #view-result .result-commerce-box {
-            background:
-                linear-gradient(135deg,
-                    color-mix(in srgb, var(--result-accent) 26%, transparent) 0%,
-                    color-mix(in srgb, var(--result-accent) 16%, transparent) 28%,
-                    color-mix(in srgb, var(--result-accent) 7%, transparent) 52%,
-                    rgba(255,253,255,.96) 78%,
-                    #FFFDFF 100%) !important;
-            border-color: color-mix(in srgb, var(--result-accent) 46%, #ffffff 54%) !important;
-        }
-        #view-result .purple-cta {
-            background: var(--result-accent) !important;
-        }
-        #view-result .section-divider,
-        #view-result .section-divider::before,
-        #view-result .section-divider::after {
-            color: var(--result-accent) !important;
-        }
-        #view-result .section-divider::before,
-        #view-result .section-divider::after {
-            background: color-mix(in srgb, var(--result-accent) 55%, transparent) !important;
-        }
-        #view-result .friend-card {
-            border-color: color-mix(in srgb, var(--result-accent) 36%, #ffffff 64%) !important;
-        }
-        /* Product cards sit above the gradient */
-        #view-result .product-card {
-            background: #FFFDFF !important;
-            border-color: rgba(33,29,25,.18);
-            box-shadow: 0 10px 18px rgba(33,29,25,.08);
-        }
-        #view-result .product-thumb {
-            background: #FFFDFF !important;
-        }
-        /* CTA depth refinements */
-        #view-result .purple-cta {
-            box-shadow: 0 5px 0 0 color-mix(in srgb, var(--result-accent) 58%, #211D19 42%) !important;
-        }
-        #view-result .purple-cta:active {
-            transform: translateY(2px);
-            box-shadow: 0 3px 0 0 color-mix(in srgb, var(--result-accent) 58%, #211D19 42%) !important;
-        }
-        .stamp-seal {
-            background: var(--result-accent);
-            box-shadow: 0 0 0 4px color-mix(in srgb, var(--result-accent) 18%, transparent);
+        .share-btn:active { transform: scale(.94); }
+        #result-cta {
+            border-radius: 14px;
+            box-shadow: 0 5px 0 0 #1A1A1A;
         }
 
         /* ---------------------------------------------------- */
-        /* [추가/수정] 랜딩 이미지용 스캔 레이저 및 무빙 아이콘 스타일 */
+        /* [수정] 옐로우/골드 테마 & 다홍색 레이저 스타일 세팅 */
         /* ---------------------------------------------------- */
+        .gold-accent {
+            color: #D4AF37;
+        }
+        .gold-border {
+            border-color: #D4AF37;
+        }
+        .gold-capsule {
+            background-color: #FFFDF0;
+            border-color: #E6C229;
+        }
         .scan-container {
             position: relative;
             width: 100%;
@@ -700,55 +432,69 @@
             align-items: center;
             justify-content: center;
         }
-        /* 감정/레이저 스캔 라인 이펙트 */
+        /* 레이저 스캔라인을 강렬한 다홍색(#FF4500)으로 설정 */
         .scan-laser {
             position: absolute;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #8D65B7, #D25F7A, #8D65B7, transparent);
-            box-shadow: 0 0 12px 3px rgba(141, 101, 183, 0.8);
-            animation: scanMove 3s ease-in-out infinite;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #FF4500, #FF6347, #FF4500, transparent);
+            box-shadow: 0 0 14px 4px rgba(255, 69, 0, 0.85);
+            animation: scanMove 2.6s ease-in-out infinite;
             z-index: 10;
         }
         @keyframes scanMove {
-            0%, 100% { top: 10%; opacity: 0.3; }
-            50% { top: 90%; opacity: 1; }
+            0%, 100% { top: 8%; opacity: 0.4; }
+            50% { top: 92%; opacity: 1; }
         }
-        /* 로테이션 아이콘 스타일 (Fade 효과) */
+        /* 로테이션 아이콘 오브젝트 (가방 -> 하이힐 -> 반지) */
         .rotate-icon {
             position: absolute;
-            font-size: 4.5rem;
+            font-size: 4.8rem;
             color: #211D19;
             opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: scale(0.88);
+            transition: opacity 0.45s ease-in-out, transform 0.45s ease-in-out;
             z-index: 5;
         }
         .rotate-icon.active {
             opacity: 1;
             transform: scale(1);
         }
+
+        /* [추가] 질문 페이지 동적 4색 바리에이션 매핑용 클래스 */
+        .q-theme-0 { --q-accent: #D25F7A; --q-soft: #FDF2F5; } /* 다홍/레드 계열 */
+        .q-theme-1 { --q-accent: #10B981; --q-soft: #ECFDF5; } /* 그린 계열 */
+        .q-theme-2 { --q-accent: #D4AF37; --q-soft: #FFFDF0; } /* 골드 계열 */
+        .q-theme-3 { --q-accent: #8D65B7; --q-soft: #F4EDF8; } /* 퍼플 계열 */
+
+        /* 4색 다이내믹 피드백 반영용 인터페이스 스타일 */
+        .dynamic-question-visual {
+            background-color: var(--q-soft, #F4EDF8);
+            border-color: #211D19;
+        }
+        .dynamic-option-btn:hover {
+            background-color: var(--q-soft, #F7F1FF) !important;
+        }
+        .dynamic-progress-fill {
+            background-color: var(--q-accent, #10B981) !important;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-neutral-800 selection:text-white">
 
-<!-- MAIN CONTAINER (Single Section Architecture) -->
-    <main class="flex-grow flex items-center justify-center p-4 md:p-8">
+<main class="flex-grow flex items-center justify-center p-4 md:p-8">
         <div class="w-full max-w-lg bg-[#FFFDFF] rounded-[28px] premium-border premium-shadow-lg p-6 md:p-8 relative overflow-hidden my-4">
             
-            <!-- [화면 1] 메인 홈 (Landing View) -->
             <div id="view-home" class="fade-transition opacity-100 flex flex-col items-center text-center py-6">
-                <!-- Animated Luxury Capsule -->
-                <div class="luxury-capsule mb-4 inline-flex items-center gap-2 bg-[#F4EDF8] text-[#211D19] border border-[#8D65B7] text-xs font-bold rounded-full uppercase tracking-wider">
-                    <span class="luxury-capsule-dot inline-block rounded-full bg-[#10B981]"></span>
-                    FIND YOUR LUXURY
+                <div class="luxury-capsule mb-4 inline-flex items-center gap-2 gold-capsule text-[#211D19] border text-xs font-bold rounded-full uppercase tracking-wider">
+                    <span class="luxury-capsule-dot inline-block rounded-full bg-[#E6C229]"></span>
+                    FIND YOUR IDENTITY
                 </div>
                 
-                <!-- Luxury Font Shuffle Visual Header -->
                 <h1 class="text-2xl md:text-3xl font-extrabold text-neutral-900 tracking-tight leading-tight mb-4">
                     쇼핑 하기 전 알아보는<br>
-                    <span class="serif-title italic font-normal text-[#8D65B7] border-b-4 border-[#D25F7A]">나의 명품 아이덴티티</span>
+                    <span class="serif-title italic font-normal gold-accent border-b-4 gold-border">나의 명품 아이덴티티</span>
                 </h1>
                 
                 <p class="text-sm md:text-base text-[#5F5750] font-medium max-w-sm mb-8 leading-relaxed">
@@ -756,21 +502,17 @@
                     당신은 어떤 기준으로 소비하는 사람일까요?
                 </p>
 
-                <!-- Main Card Illustration Mockup (안쪽 박스 제거 및 스캔 이펙트 구현) -->
-                <div class="w-full bg-[#F7F1FF] border-2 border-[#211D19] rounded-[18px] p-6 mb-8 relative overflow-hidden h-64 flex items-center justify-center">
+                <div class="w-full bg-[#FFFDF0] border-2 border-[#211D19] rounded-[18px] p-6 mb-8 relative overflow-hidden h-64 flex items-center justify-center">
                     <div class="scan-container">
-                        <!-- 레이저 바 -->
                         <div class="scan-laser"></div>
-                        <!-- 번갈아 나타나는 아이콘 컬렉션 -->
                         <i class="fa-solid fa-bag-shopping rotate-icon active" id="icon-bag"></i>
                         <i class="fa-solid fa-shoe-prints rotate-icon" id="icon-shoe"></i>
-                        <i class="fa-solid fa-gem rotate-icon" id="icon-gem"></i>
+                        <i class="fa-solid fa-ring rotate-icon" id="icon-ring"></i>
                     </div>
                 </div>
 
-                <!-- CTA Button with micro-interactions -->
-                <button onclick="startTest()" class="w-full bg-[#211D19] text-white hover:bg-[#332C25] text-base font-bold py-4 rounded-xl premium-border premium-shadow premium-shadow-hover transition duration-150 flex items-center justify-center gap-2">
-                    <span>아이텐티티 확인하러 가기 -></span>
+                <button onclick="startTest()" class="w-full bg-[#211D19] text-white hover:bg-[#3A332C] text-base font-bold py-4 rounded-xl premium-border premium-shadow premium-shadow-hover transition duration-150 flex items-center justify-center gap-2">
+                    <span>아이텐티티 확인하러 가기 -&gt;</span>
                 </button>
                 
                 <div class="mt-4 text-[11px] text-neutral-400 flex items-center gap-1">
@@ -779,44 +521,36 @@
                 </div>
             </div>
 
-            <!-- [화면 2] 테스트 진행 중 (In-Test UX View) -->
-            <div id="view-test" class="hidden opacity-0 fade-transition">
-                <!-- Status & Progress Indicator -->
+            <div id="view-test" class="hidden opacity-0 fade-transition q-theme-0">
                 <div class="mb-6 mt-[50px]">
                     <div class="flex items-center gap-3">
                         <span id="current-question-indicator" class="text-xs font-extrabold text-[#211D19] shrink-0">
                             Q. 1 / 7
                         </span>
-                        <!-- Outer bar -->
                         <div class="w-full h-4 bg-[#FFFDFF] rounded-full border-2 border-[#211D19] overflow-hidden p-0.5">
-                            <!-- Dynamic Inner progress bar -->
-                            <div id="progress-bar-fill" class="h-full bg-[#10B981] rounded-full transition-all duration-300 progress-striped" style="width: 14.3%;"></div>
+                            <div id="progress-bar-fill" class="h-full dynamic-progress-fill rounded-full transition-all duration-300 progress-striped" style="width: 14.3%;"></div>
                         </div>
                     </div>
                     <div class="flex justify-center mt-7 mb-7">
-                        <div class="question-visual rounded-full bg-[#F4EDF8] border-2 border-[#211D19] flex items-center justify-center text-[#211D19]">
+                        <div id="visual-icon-container" class="question-visual dynamic-question-visual rounded-full border-2 flex items-center justify-center text-[#211D19]">
                             <span id="question-visual-icon" class="fa-solid fa-bag-shopping text-4xl" aria-hidden="true"></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Question Text -->
                 <h2 id="question-text" class="text-lg md:text-xl font-bold text-[#211D19] leading-relaxed text-center mb-6">
-                        다음 달 있을 동창회,<br>내가 들고 가고 싶은 가방은?
-                    </h2>
+                    다음 달 있을 동창회,<br>내가 들고 가고 싶은 가방은?
+                </h2>
 
-                <!-- Multiple Choice Button Cards -->
                 <div class="flex flex-col gap-4 mt-8">
-                    <!-- Option A -->
-                    <button id="option-a-btn" onclick="handleSelectAnswer('A')" class="w-full text-left bg-[#FFFCF6] hover:bg-[#F7F1FF] p-5 rounded-[18px] border-2 border-[#211D19] premium-shadow premium-shadow-hover transition duration-150 flex items-center gap-4">
+                    <button id="option-a-btn" onclick="handleSelectAnswer('A')" class="w-full text-left bg-[#FFFCF6] dynamic-option-btn p-5 rounded-[18px] border-2 border-[#211D19] premium-shadow premium-shadow-hover transition duration-150 flex items-center gap-4">
                         <span class="w-6 h-6 rounded-full bg-[#211D19] text-white flex items-center justify-center text-xs font-bold leading-none shrink-0">A</span>
                         <span id="option-a-text" class="text-sm md:text-base font-semibold text-[#211D19] leading-normal">
                             멀리서도 브랜드가 보이는 아이코닉 백
                         </span>
                     </button>
 
-                    <!-- Option B -->
-                    <button id="option-b-btn" onclick="handleSelectAnswer('B')" class="w-full text-left bg-[#FFFCF6] hover:bg-[#F7F1FF] p-5 rounded-[18px] border-2 border-[#211D19] premium-shadow premium-shadow-hover transition duration-150 flex items-center gap-4">
+                    <button id="option-b-btn" onclick="handleSelectAnswer('B')" class="w-full text-left bg-[#FFFCF6] dynamic-option-btn p-5 rounded-[18px] border-2 border-[#211D19] premium-shadow premium-shadow-hover transition duration-150 flex items-center gap-4">
                         <span class="w-6 h-6 rounded-full border-2 border-[#211D19] bg-[#FFFDFF] text-[#211D19] flex items-center justify-center text-xs font-bold leading-none shrink-0">B</span>
                         <span id="option-b-text" class="text-sm md:text-base font-semibold text-[#211D19] leading-normal">
                             아는 사람만 알아보는 조용한 명품, 로고리스 백
@@ -824,7 +558,6 @@
                     </button>
                 </div>
 
-                <!-- Back button -->
                 <div class="mt-8 flex justify-center">
                     <button onclick="goPrevQuestion()" id="prev-btn" class="text-xs font-bold text-neutral-400 hover:text-neutral-900 transition flex items-center gap-1.5 py-1">
                         <i class="fa-solid fa-arrow-left text-[10px]"></i>
@@ -833,7 +566,6 @@
                 </div>
             </div>
 
-            <!-- [로딩 화면] (Bridge Page) -->
             <div id="view-loading" class="hidden opacity-0 fade-transition py-12 flex flex-col items-center justify-center text-center">
                 <div class="relative w-24 h-24 mb-6">
                     <div class="absolute inset-0 rounded-full border-4 border-amber-100"></div>
@@ -849,7 +581,6 @@
                 </p>
             </div>
 
-            <!-- [화면 3] 결과 페이지 및 최종 Action UX (Result View) -->
             <div id="view-result" class="hidden opacity-0 fade-transition pb-5 result-purple text-center">
                     <div class="result-hero-paper mx-5 mt-[22px] px-5 pt-6 pb-7 text-center">
                         <span class="result-pill inline-flex items-center justify-center rounded-full border px-4 py-1 text-[10px] font-black tracking-[0.16em] uppercase">
@@ -962,7 +693,6 @@
         </div>
     </main>
 
-    <!-- Custom Toast Alert Notification Container -->
     <div id="toast-container" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-[100] pointer-events-none transition-all duration-300 opacity-0 translate-y-4">
         <div id="toast-message" class="bg-neutral-900 text-white text-xs md:text-sm font-semibold px-6 py-3 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
             <i class="fa-solid fa-circle-check text-green-400"></i>
@@ -971,10 +701,9 @@
     </div>
 
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // [추가] 랜딩페이지 중앙 가방/신발/목걸이 순차 로테이션 로직
-        const landingIcons = ['icon-bag', 'icon-shoe', 'icon-gem'];
+        // [수정] 홈 화면 중앙 로테이션 오브젝트 리스트 (가방 -> 하이힐 -> 반지)
+        const landingIcons = ['icon-bag', 'icon-shoe', 'icon-ring'];
         let currentIconIdx = 0;
 
         function rotateLandingIcons() {
@@ -988,7 +717,6 @@
             const nextEl = document.getElementById(nextId);
             if (nextEl) nextEl.classList.add('active');
         }
-        // 2초마다 오브젝트 변경 실행
         setInterval(rotateLandingIcons, 2000);
 
         // 1. Data Definitions for Questions and Answers
@@ -1042,7 +770,7 @@
             RARE: {
                 brand: "희소템 레이더",
                 subTitle: "당신은,",
-                mainTitle: "공홈 밖\n보물찾기형",
+                mainTitle: "공홈 밖<br>보물찾기형",
                 profile: ["A", "A", "A", "A", "A", "A", "A"],
                 description: "당신은 가방을 고를 때 '지금 이 순간에만 만날 수 있는가'를 중요하게 봅니다. 모두가 아는 인기템도 좋지만, 공홈에서는 보기 어려운 컬러나 단종 모델을 발견했을 때 가장 크게 설레는 편이에요.",
                 goodMatch: "공홈에는 없는 컬러, 시즌 한정, 단종 라인처럼 발견하는 재미가 있는 아이템과 잘 맞아요.",
@@ -1064,7 +792,7 @@
             ICONIC: {
                 brand: "아이코닉 무드",
                 subTitle: "당신은,",
-                mainTitle: "착샷 중심\n무드 쇼퍼",
+                mainTitle: "착샷 중심<br>무드 쇼퍼",
                 profile: ["A", "A", "A", "A", "B", "B", "A"],
                 description: "당신에게 명품은 단순한 물건보다 '들었을 때의 분위기'에 가깝습니다. 착용했을 때 예쁜지, 내 이미지와 잘 맞는지, 주변에서 자연스럽게 알아봐주는지가 중요해요.",
                 goodMatch: "실제 착용 느낌이 잘 보이는 인기 라인과 요즘 많이 찾는 아이코닉 백을 먼저 둘러보면 좋아요.",
@@ -1086,7 +814,7 @@
             VALUE: {
                 brand: "가치 판단형",
                 subTitle: "당신은,",
-                mainTitle: "조용한 럭셔리\n분석가",
+                mainTitle: "조용한 럭셔리<br>분석가",
                 profile: ["B", "B", "B", "B", "B", "B", "B"],
                 description: "당신은 쉽게 흔들리지 않고 오래 봐도 질리지 않을 선택을 중요하게 생각합니다. 로고의 크기보다 브랜드 가치, 소재, 무게, 크기, 컨디션을 차분히 따지는 편이에요.",
                 goodMatch: "컨디션, 구성품, 활용도까지 비교할 수 있는 클래식 라인과 로고리스 백을 먼저 보면 잘 맞아요.",
@@ -1102,13 +830,13 @@
                 goodFriend: "꼼꼼한 비교 친구",
                 badFriend: "즉흥 구매 친구",
                 quote: "후회 없는 선택을 위해 모든 정보를 수집해요.",
-                accent: "#10B981",
-                soft: "#ECFDF5"
+                accent: "#D4AF37",
+                soft: "#FFFDF0"
             },
             SMART: {
                 brand: "합리적 탐색가",
                 subTitle: "당신은,",
-                mainTitle: "가격 조건\n밸런스형",
+                mainTitle: "가격 조건<br>밸런스형",
                 profile: ["B", "B", "B", "A", "B", "B", "B"],
                 description: "당신은 명품을 볼 때 설렘만큼이나 '이 조건이 괜찮은가'를 중요하게 봅니다. 같은 예산이라면 더 좋은 선택지를 찾고 싶고, 가격과 만족도의 균형이 맞을 때 구매 확신이 생겨요.",
                 goodMatch: "같은 예산 안에서 더 좋은 선택지를 볼 수 있는 가격대별 인기 매물과 컨디션 좋은 아이템을 비교해보면 좋아요.",
@@ -1128,51 +856,50 @@
                 soft: "#F4EDF8"
             }
         };
-        // 3. Application State Variables
-        let currentStep = 0; // 'home', 'test', 'loading', 'result'
-        let userAnswers = []; // Array to collect 'A' or 'B'
+
+        let currentStep = 0; 
+        let userAnswers = []; 
 
         function formatQuestionText(text) {
             if (text.includes(',')) {
                 return text.replace(/,\s*/, ',<br>');
             }
-
             const target = Math.ceil(text.length / 2);
             const breakIndex = text.indexOf(' ', target);
             if (breakIndex > -1) {
                 return `${text.slice(0, breakIndex)}<br>${text.slice(breakIndex + 1)}`;
             }
-
             return text;
         }
-        // 4. Start the quiz flow
-        function startTest() {
 
-            // Change View Home -> Test View
+        function startTest() {
             transitionView('view-home', 'view-test');
             currentStep = 0;
             userAnswers = [];
             loadQuestion();
         }
 
-        // 5. Render active question
+        // [수정] 결과 도출 4색이 질문 단계별로 순환식 반영되도록 매핑 수정
         function loadQuestion() {
             const currentQuestion = questions[currentStep];
+            const testView = document.getElementById('view-test');
             
-            // Update Text content
+            // 테마 인덱스 순환 적용 (0: 다홍, 1: 그린, 2: 골드, 3: 퍼플)
+            const themeIndex = currentStep % 4;
+            testView.className = `fade-transition opacity-100 q-theme-${themeIndex}`;
+            
             document.getElementById('current-question-indicator').innerText = `Q. ${currentStep + 1} / ${questions.length}`;
             document.getElementById('question-text').innerHTML = formatQuestionText(currentQuestion.text);
             document.getElementById('option-a-text').innerText = currentQuestion.A;
             document.getElementById('option-b-text').innerText = currentQuestion.B;
+            
             const visualIcon = document.getElementById('question-visual-icon');
             visualIcon.className = `fa-solid ${currentQuestion.icon} text-4xl`;
             visualIcon.innerText = '';
 
-            // Calculate progress percentage
             const progress = ((currentStep + 1) / questions.length) * 100;
             document.getElementById('progress-bar-fill').style.width = `${progress}%`;
 
-            // Control Prev Button Visibility
             const prevBtn = document.getElementById('prev-btn');
             if (currentStep === 0) {
                 prevBtn.classList.add('invisible');
@@ -1181,21 +908,16 @@
             }
         }
 
-        // 6. Handle choice selection
         function handleSelectAnswer(choice) {
             userAnswers[currentStep] = choice;
-            
             if (currentStep < questions.length - 1) {
-                // Next Question transition
                 currentStep++;
                 loadQuestion();
             } else {
-                // Last question completed -> show loading bridge page
                 showLoadingBridge();
             }
         }
 
-        // 7. Support go back previous question
         function goPrevQuestion() {
             if (currentStep > 0) {
                 currentStep--;
@@ -1203,84 +925,60 @@
             }
         }
 
-        // 8. Bridge Loading Screen Controller
         function showLoadingBridge() {
             transitionView('view-test', 'view-loading');
-            
-            // Keep the bridge short so the result page feels instant.
             setTimeout(() => {
                 calculateAndShowResult();
             }, 350);
-
-            // Safety fallback: never leave the user stuck on the loading screen.
-            setTimeout(() => {
-                const loadingView = document.getElementById('view-loading');
-                const resultView = document.getElementById('view-result');
-                if (loadingView && resultView && !loadingView.classList.contains('hidden') && resultView.classList.contains('hidden')) {
-                    loadingView.classList.add('hidden', 'opacity-0');
-                    resultView.classList.remove('hidden', 'opacity-0');
-                    resultView.classList.add('opacity-100');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            }, 1200);
         }
 
-        // 9. Calculate Matching Score (Signature alignment algorithm)
         function calculateAndShowResult() {
             let bestMatchKey = "RARE";
             let highestScore = -1;
 
-            // Compute similarity with each persona's ideal profile
             for (const key in personas) {
                 let score = 0;
                 const personaProfile = personas[key].profile;
-                
-                // Compare answer elements
                 for (let i = 0; i < userAnswers.length; i++) {
                     if (userAnswers[i] === personaProfile[i]) {
                         score++;
                     }
                 }
-
-                // Update best match (resolving tie-break naturally via iteration order)
                 if (score > highestScore) {
                     highestScore = score;
                     bestMatchKey = key;
                 }
             }
 
-            // Bind Calculated Results to DOM elements
             try {
                 const matchedPersona = personas[bestMatchKey] || personas.RARE;
                 const resultCard = document.getElementById('view-result');
                 resultCard.style.setProperty('--result-accent', matchedPersona.accent);
                 resultCard.style.setProperty('--result-soft', matchedPersona.soft);
+                
                 const subTitleEl = document.getElementById('result-sub-title');
                 if (subTitleEl) subTitleEl.innerText = matchedPersona.subTitle;
-                document.getElementById('result-main-title').innerHTML = matchedPersona.mainTitle.replace(/\n/g, '<br>');
+                
+                document.getElementById('result-main-title').innerHTML = matchedPersona.mainTitle;
                 document.getElementById('result-tags').innerText = matchedPersona.tags;
+                
                 const resultMascot = document.getElementById('result-mascot');
                 resultMascot.className = `mascot ${matchedPersona.mascot || 'mascot-dog'}`;
-                const descriptionEl = document.getElementById('result-description');
-                if (descriptionEl) descriptionEl.innerText = matchedPersona.description;
+                
                 document.getElementById('result-trait-1').innerText = matchedPersona.traits[0];
                 document.getElementById('result-trait-2').innerText = matchedPersona.traits[1];
                 document.getElementById('result-trait-3').innerText = matchedPersona.traits[2];
-                matchedPersona.stats.forEach((stat, index) => {
-                    const labelEl = document.getElementById(`result-stat-${index + 1}-label`);
-                    const fillEl = document.getElementById(`result-stat-${index + 1}-fill`);
-                    if (labelEl) labelEl.innerText = stat[0];
-                    if (fillEl) fillEl.style.width = `${stat[1]}%`;
-                });
+                
                 document.getElementById('result-good-friend').innerText = matchedPersona.goodFriend;
                 document.getElementById('result-bad-friend').innerText = matchedPersona.badFriend;
-                document.getElementById('result-quote').innerText = `“${matchedPersona.quote}”`;
+                
                 const recoCopy = document.getElementById('result-reco-copy');
                 const recoPoint1 = document.getElementById('result-reco-point-1');
                 const recoPoint2 = document.getElementById('result-reco-point-2');
                 if (recoCopy) recoCopy.innerText = matchedPersona.goodMatch;
                 if (recoPoint1) recoPoint1.innerText = matchedPersona.recoPoints?.[0] || matchedPersona.traits[0];
                 if (recoPoint2) recoPoint2.innerText = matchedPersona.recoPoints?.[1] || matchedPersona.traits[1];
+                
                 const product1Brand = document.getElementById('result-product-1-brand');
                 const product1Name = document.getElementById('result-product-1-name');
                 const product2Brand = document.getElementById('result-product-2-brand');
@@ -1289,6 +987,7 @@
                 if (product1Name) product1Name.innerHTML = (matchedPersona.products?.[0]?.[1] || '버킨 쉐도우\n콘스탄트 미니').replace(/\n/g, '<br>');
                 if (product2Brand) product2Brand.innerText = matchedPersona.products?.[1]?.[0] || '에르메스';
                 if (product2Name) product2Name.innerHTML = (matchedPersona.products?.[1]?.[1] || '켈리 백\n빈티지 골드 하드웨어').replace(/\n/g, '<br>');
+                
                 const resultCta = document.getElementById('result-cta');
                 const resultInlineCta = document.getElementById('result-inline-cta');
                 const resultTipCta = document.getElementById('result-tip-cta');
@@ -1309,22 +1008,17 @@
             }
         }
 
-        // 10. Smooth View Transition Helpers
         function transitionView(fromId, toId) {
             const fromView = document.getElementById(fromId);
             const toView = document.getElementById(toId);
             if (!fromView || !toView) return;
 
-            // Start fade out of current view
             fromView.classList.add('opacity-0');
             
             setTimeout(() => {
                 fromView.classList.add('hidden');
                 toView.classList.remove('hidden');
-                
-                // Force layout reflow
                 toView.offsetHeight;
-                
                 toView.classList.remove('opacity-0');
                 toView.classList.add('opacity-100');
 
@@ -1334,18 +1028,15 @@
             }, 300);
         }
 
-// 12. Reset Test & Return to Landing Home
         function resetTest() {
             transitionView('view-result', 'view-home');
             currentStep = 0;
             userAnswers = [];
         }
 
-        // 13. Social Sharing Utilities
         function showToast(message) {
             const toast = document.getElementById('toast-container');
             const toastMsg = document.getElementById('toast-message');
-            
             toastMsg.querySelector('span').innerText = message;
             toast.classList.remove('opacity-0', 'translate-y-4');
             toast.classList.add('opacity-100', 'translate-y-0');
@@ -1357,37 +1048,23 @@
         }
 
         function copyPageLink() {
-            // Simulating URL copying considering iframe environments
             const dummy = document.createElement('input');
             const text = window.location.href;
-            
             document.body.appendChild(dummy);
             dummy.value = text;
             dummy.select();
             document.execCommand('copy');
             document.body.removeChild(dummy);
-            
             showToast("테스트 링크가 클립보드에 복사되었습니다! 🎉");
         }
 
         function shareInstagram() {
             showToast("인스타 공유용 결과 이미지를 준비해 주세요. 지원 환경에서는 공유 시트를 사용할 수 있어요.");
         }
-        function shareKakao() {
-            // Kakao share mockup (Since real SDK needs registered App Key, showing custom simulation)
-            showToast("카카오톡으로 진단 결과 카드 전송 완료! 💌");
-        }
 
         function downloadStoryImage() {
             showToast("인스타그램 스토리 규격 이미지 저장 완료! 📸");
         }
-
-        // Initialize state on window load
-        window.onload = function () {
-            // Set up viewport or initial conditions if needed
-        };
     </script>
 </body>
 </html>
-
-```
