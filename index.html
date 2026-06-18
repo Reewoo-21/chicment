@@ -748,6 +748,138 @@
         .dynamic-progress-fill {
             background-color: var(--q-accent, #10B981) !important;
         }
+    
+
+        /* Final result page replacement styles */
+        #view-result {
+            --result-accent: #8D65B7;
+            --result-soft: #FFFDFF;
+            background: #FFFDFF !important;
+        }
+        #view-result .result-hero-paper,
+        #view-result .result-mascot-panel {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: 0 !important;
+        }
+        #view-result .result-pill {
+            color: var(--result-accent) !important;
+            border-color: color-mix(in srgb, var(--result-accent) 42%, #ffffff 58%) !important;
+            background: #FFFDFF !important;
+        }
+        #view-result .result-accent,
+        #view-result .metric-icon,
+        #view-result .metric-value {
+            color: var(--result-accent) !important;
+        }
+        #view-result .result-image-divider {
+            height: 1px;
+            margin: 6px 24px 0;
+            background: color-mix(in srgb, var(--result-accent) 62%, transparent) !important;
+        }
+        .style-metrics {
+            margin-top: 20px;
+        }
+        .metric-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .metric-icon {
+            width: 20px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+        .metric-row > span:nth-child(2) {
+            width: 55px;
+            flex-shrink: 0;
+            font-size: 13px;
+            font-weight: 800;
+            color: #211D19;
+        }
+        .metric-track {
+            flex: 1;
+            height: 8px;
+            background: #ECECEC;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .metric-fill {
+            display: block;
+            height: 100%;
+            width: 0%;
+            border-radius: 999px;
+            background: var(--result-accent);
+            transition: width .45s ease;
+        }
+        .metric-value {
+            width: 28px;
+            text-align: right;
+            font-size: 13px;
+            font-weight: 900;
+        }
+        #view-result .result-commerce-box {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg,
+                color-mix(in srgb, var(--result-accent) 16%, transparent) 0%,
+                color-mix(in srgb, var(--result-accent) 7%, transparent) 40%,
+                #FFFDFF 100%) !important;
+            border-color: color-mix(in srgb, var(--result-accent) 46%, #ffffff 54%) !important;
+            box-shadow: 0 0 0 1px color-mix(in srgb, var(--result-accent) 10%, transparent), 0 10px 24px rgba(33,29,25,.04);
+        }
+        #view-result .result-commerce-box::after {
+            display: none !important;
+        }
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .item-row {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .item-thumb {
+            width: 56px;
+            height: 56px;
+            border-radius: 999px;
+            background: #000;
+            flex-shrink: 0;
+        }
+        .item-title {
+            font-size: 15px;
+            font-weight: 900;
+            color: #211D19;
+            margin-bottom: 4px;
+        }
+        .item-copy {
+            font-size: 12px;
+            line-height: 1.55;
+            font-weight: 600;
+            color: #4B4B4B;
+        }
+        #view-result .purple-cta {
+            background: var(--result-accent) !important;
+            box-shadow: 0 5px 0 0 color-mix(in srgb, var(--result-accent) 58%, #211D19 42%) !important;
+        }
+        #view-result .purple-cta:active {
+            transform: translateY(2px);
+            box-shadow: 0 3px 0 0 color-mix(in srgb, var(--result-accent) 58%, #211D19 42%) !important;
+        }
+        #view-result .section-divider {
+            color: var(--result-accent) !important;
+        }
+        #view-result .section-divider::before,
+        #view-result .section-divider::after {
+            background: color-mix(in srgb, var(--result-accent) 55%, transparent) !important;
+        }
+        #view-result .friend-card {
+            background: transparent !important;
+            border-color: color-mix(in srgb, var(--result-accent) 36%, #ffffff 64%) !important;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-neutral-800 selection:text-white">
@@ -885,31 +1017,70 @@
 
                     <div class="px-6 pt-6 pb-8 text-left">
                         <h3 class="mb-5 text-center text-2xl font-black result-accent">당신의 쇼핑스타일은?</h3>
-                        <ul class="space-y-3 text-sm font-bold text-[#211D19]">
-                            <li class="flex gap-3"><span class="result-check"><i class="fa-solid fa-check"></i></span><span id="result-trait-1">공홈에는 없는 아이템에 빠르게 반응해요</span></li>
-                            <li class="flex gap-3"><span class="result-check"><i class="fa-solid fa-check"></i></span><span id="result-trait-2">희소한 컬러와 시즌 한정 라인을 좋아해요</span></li>
-                            <li class="flex gap-3"><span class="result-check"><i class="fa-solid fa-check"></i></span><span id="result-trait-3">마음에 들면 오래 고민하지 않는 편이에요</span></li>
-                        </ul>
 
-                        <div class="hidden">
-                            <span id="result-stat-1-label">희소성</span><div id="result-stat-1-fill"></div>
-                            <span id="result-stat-2-label">속도</span><div id="result-stat-2-fill"></div>
-                            <span id="result-stat-3-label">분석</span><div id="result-stat-3-fill"></div>
-                            <p id="result-description"></p><p id="result-quote"></p>
+                        <div class="style-metrics space-y-3">
+                            <div class="metric-row">
+                                <span class="metric-icon"><i id="result-metric-1-icon" class="fa-regular fa-gem"></i></span>
+                                <span id="result-metric-1-label">희소성</span>
+                                <span class="metric-track"><span id="result-metric-1-fill" class="metric-fill"></span></span>
+                                <span id="result-metric-1-value" class="metric-value">95</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-icon"><i id="result-metric-2-icon" class="fa-solid fa-arrow-trend-up"></i></span>
+                                <span id="result-metric-2-label">투자성</span>
+                                <span class="metric-track"><span id="result-metric-2-fill" class="metric-fill"></span></span>
+                                <span id="result-metric-2-value" class="metric-value">80</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-icon"><i id="result-metric-3-icon" class="fa-regular fa-bookmark"></i></span>
+                                <span id="result-metric-3-label">브랜드</span>
+                                <span class="metric-track"><span id="result-metric-3-fill" class="metric-fill"></span></span>
+                                <span id="result-metric-3-value" class="metric-value">40</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-icon"><i id="result-metric-4-icon" class="fa-regular fa-star"></i></span>
+                                <span id="result-metric-4-label">트렌드</span>
+                                <span class="metric-track"><span id="result-metric-4-fill" class="metric-fill"></span></span>
+                                <span id="result-metric-4-value" class="metric-value">35</span>
+                            </div>
                         </div>
 
-                        <div class="result-commerce-box mt-7 rounded-2xl border p-[15px] md:p-[19px]">
-                            <p class="mb-5 text-xs font-black text-[#211D19]">👑 당신에게 어울리는 브랜드 & 제품</p>
-                            <div class="product-grid grid grid-cols-2 gap-3">
-                                <div class="product-card">
-                                    <div class="product-thumb"></div>
-                                    <p id="result-product-1-brand" class="mt-4 text-xl font-black result-accent">에르메스</p>
-                                    <p id="result-product-1-name" class="mt-2 text-sm font-extrabold leading-snug text-[#211D19]">버킨 쉐도우<br>콘스탄트 미니</p>
+                        <div class="hidden">
+                            <span id="result-stat-1-label"></span><div id="result-stat-1-fill"></div>
+                            <span id="result-stat-2-label"></span><div id="result-stat-2-fill"></div>
+                            <span id="result-stat-3-label"></span><div id="result-stat-3-fill"></div>
+                            <span id="result-trait-1"></span><span id="result-trait-2"></span><span id="result-trait-3"></span>
+                            <p id="result-description"></p><p id="result-quote"></p>
+                            <span id="result-product-1-brand"></span><span id="result-product-1-name"></span>
+                            <span id="result-product-2-brand"></span><span id="result-product-2-name"></span>
+                        </div>
+
+                        <div class="result-commerce-box mt-7 rounded-2xl border p-[22px] md:p-[24px]">
+                            <p id="result-item-box-title" class="mb-5 text-sm font-black text-[#211D19]">
+                                👑 공홈 밖 보물찾기형인 당신에게 잘 어울릴 아이템
+                            </p>
+
+                            <div class="item-list">
+                                <div class="item-row">
+                                    <div class="item-thumb" aria-hidden="true"></div>
+                                    <div>
+                                        <p id="result-item-1-title" class="item-title">해외 한정판</p>
+                                        <p id="result-item-1-copy" class="item-copy">내 마음에 쏙 드는 명품이 매장에 없다면, 국내엔 없는 한정 미발매 모델도 확인해보세요</p>
+                                    </div>
                                 </div>
-                                <div class="product-card">
-                                    <div class="product-thumb"></div>
-                                    <p id="result-product-2-brand" class="mt-4 text-xl font-black result-accent">에르메스</p>
-                                    <p id="result-product-2-name" class="mt-2 text-sm font-extrabold leading-snug text-[#211D19]">켈리 백<br>빈티지 골드 하드웨어</p>
+                                <div class="item-row">
+                                    <div class="item-thumb" aria-hidden="true"></div>
+                                    <div>
+                                        <p id="result-item-2-title" class="item-title">빈티지 미개봉</p>
+                                        <p id="result-item-2-copy" class="item-copy">리미티드 에디션은 시간이 지날수록 더 특별한 선택이 될 수 있어요</p>
+                                    </div>
+                                </div>
+                                <div class="item-row">
+                                    <div class="item-thumb" aria-hidden="true"></div>
+                                    <div>
+                                        <p id="result-item-3-title" class="item-title">리미티드 에디션</p>
+                                        <p id="result-item-3-copy" class="item-copy">남들과 겹치지 않는 시즌 컬러와 단종 라인을 먼저 살펴보세요</p>
+                                    </div>
                                 </div>
                             </div>
 
@@ -917,34 +1088,48 @@
                                 나랑 어울리는 명품 구경가기 &gt;
                             </a>
 
-                            <div class="section-divider my-5"><span>C</span></div>
+                            <div class="section-divider my-5"><span>✦</span></div>
 
                             <p class="mb-3 text-xs font-black text-[#211D19]">👑 시크먼트 TIP!</p>
-                            <p id="result-reco-copy" class="text-sm font-bold leading-relaxed text-[#211D19]">공홈에는 품절되어 더 이상 구할 수 없는 한정판, 프리미엄 모델만 모았습니다.</p>
+                            <p id="result-reco-copy" class="text-sm font-bold leading-relaxed text-[#211D19]">
+                                공홈에는 품절되어 더 이상 구할 수 없는 한정판, 프리미엄 모델만 모았습니다.
+                            </p>
                             <ul class="mt-3 space-y-1 text-xs font-extrabold result-accent">
                                 <li>- <span id="result-reco-point-1">국내 미출시/해외 직구 한정 컬러 모델</span></li>
                                 <li>- <span id="result-reco-point-2">단종되어 소장 가치가 올라간 리미티드 에디션</span></li>
+                                <li>- <span id="result-reco-point-3">내가 갖고 있는 명품과 잘 어울릴만한 아이템 확인해보세요</span></li>
                             </ul>
+
                             <a id="result-tip-cta" href="https://chicment.com" target="_blank" rel="noopener noreferrer" class="purple-cta mt-5 block rounded-xl px-4 py-4 text-center text-sm font-black text-white transition active:translate-y-1">
                                 시크먼트에서 단종 제품 찾아보기 &gt;
                             </a>
-                            <p class="mt-3 text-center text-[11px] font-bold text-[#6F655D]">지금 이 순간에도 다른 컬렉터가 보고 있을 수 있어요.</p>
+                            <p class="mt-3 text-center text-[11px] font-bold text-[#6F655D]">
+                                지금 이 순간에도 다른 컬렉터가 보고 있을 수 있어요.
+                            </p>
                         </div>
 
                         <div class="mt-8 grid grid-cols-2 gap-3">
                             <div class="friend-card rounded-2xl border p-4 text-center">
                                 <p class="mb-2 text-[11px] font-black text-[#8B8175]">같이 쇼핑 가면 잘 맞는 친구</p>
-                                <div id="result-good-mascot" class="friend-mascot good fox" aria-hidden="true"><span class="friend-mascot-head"><span class="friend-mascot-nose"></span></span></div>
+                                <div id="result-good-mascot" class="friend-mascot good fox" aria-hidden="true">
+                                    <span class="friend-mascot-head"><span class="friend-mascot-nose"></span></span>
+                                </div>
                                 <p id="result-good-friend" class="text-sm font-black text-[#211D19] leading-tight">실물파 감성 친구</p>
                             </div>
+
                             <div class="friend-card rounded-2xl border p-4 text-center">
                                 <p class="mb-2 text-[11px] font-black text-[#8B8175]">같이 가면 안 맞는 친구</p>
-                                <div id="result-bad-mascot" class="friend-mascot bad cat" aria-hidden="true"><span class="friend-mascot-head"><span class="friend-mascot-nose"></span></span></div>
+                                <div id="result-bad-mascot" class="friend-mascot bad cat" aria-hidden="true">
+                                    <span class="friend-mascot-head"><span class="friend-mascot-nose"></span></span>
+                                </div>
                                 <p id="result-bad-friend" class="text-sm font-black text-[#211D19] leading-tight">극강의 계산기 친구</p>
                             </div>
                         </div>
 
-                        <p class="mt-8 text-center text-xs font-bold text-[#5F5750]">다른 유형이 궁금하다면? 친구에게 공유해보세요!</p>
+                        <p class="mt-8 text-center text-xs font-bold text-[#5F5750]">
+                            다른 유형이 궁금하다면? 친구에게 공유해보세요!
+                        </p>
+
                         <div class="mt-4 flex justify-center gap-5">
                             <button onclick="copyPageLink()" class="share-btn" title="링크 복사"><i class="fa-solid fa-link"></i></button>
                             <button onclick="shareInstagram()" class="share-btn" title="인스타 공유"><i class="fa-brands fa-instagram"></i></button>
@@ -959,14 +1144,14 @@
                         </div>
                     </div>
                 
-                <a id="result-cta"
-                   href="https://chicment.com"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="fixed left-1/2 bottom-6 z-50 w-[85%] max-w-[400px] -translate-x-1/2 bg-[#050505] text-white text-sm md:text-base font-extrabold py-6 px-5 rounded-xl text-center shadow-[0_6px_0_0_#1A1A1A]">
-                    요즘 유행하는 명품 구경가기 >
-                </a>
-            </div>
+                    <a id="result-cta"
+                       href="https://chicment.com"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="fixed left-1/2 bottom-6 z-50 w-[85%] max-w-[400px] -translate-x-1/2 bg-[#050505] text-white text-sm md:text-base font-extrabold py-6 px-5 rounded-xl text-center shadow-[0_6px_0_0_#1A1A1A]">
+                        요즘 유행하는 명품 구경가기 >
+                    </a>
+                </div>
 
         </div>
     </main>
@@ -1139,6 +1324,35 @@
                 soft: "#F4EDF8"
             }
         };
+
+
+        const resultPageContent = {
+            RARE: {
+                metrics: [["희소성", 95, "fa-regular fa-gem"], ["투자성", 80, "fa-solid fa-arrow-trend-up"], ["브랜드", 40, "fa-regular fa-bookmark"], ["트렌드", 35, "fa-regular fa-star"]],
+                itemBoxTitle: "👑 공홈 밖 보물찾기형인 당신에게 잘 어울릴 아이템",
+                items: [["해외 한정판", "내 마음에 쏙 드는 명품이 매장에 없다면, 국내엔 없는 한정 미발매 모델도 확인해보세요"], ["빈티지 미개봉", "리미티드 에디션은 시간이 지날수록 더 특별한 선택이 될 수 있어요"], ["리미티드 에디션", "남들과 겹치지 않는 시즌 컬러와 단종 라인을 먼저 살펴보세요"]],
+                recoPoint3: "내가 갖고 있는 명품과 잘 어울릴만한 아이템 확인해보세요"
+            },
+            ICONIC: {
+                metrics: [["착샷", 92, "fa-regular fa-image"], ["무드", 88, "fa-regular fa-heart"], ["브랜드", 76, "fa-regular fa-bookmark"], ["트렌드", 84, "fa-regular fa-star"]],
+                itemBoxTitle: "👑 착샷 중심 무드 쇼퍼인 당신에게 잘 어울릴 아이템",
+                items: [["아이코닉 백", "사진으로 봤을 때보다 실제 착용했을 때 분위기가 살아나는 라인을 확인해보세요"], ["데일리 컬러", "자주 드는 룩과 잘 어울리는 뉴트럴 컬러를 먼저 보면 실패 확률이 낮아요"], ["인기 착샷템", "요즘 많이 찾는 모델은 실제 후기와 착샷을 함께 비교해보세요"]],
+                recoPoint3: "내 옷장 속 데일리룩과 잘 맞는 명품을 확인해보세요"
+            },
+            VALUE: {
+                metrics: [["희소성", 45, "fa-regular fa-gem"], ["투자성", 82, "fa-solid fa-arrow-trend-up"], ["브랜드", 90, "fa-regular fa-bookmark"], ["트렌드", 38, "fa-regular fa-star"]],
+                itemBoxTitle: "👑 조용한 럭셔리 분석가인 당신에게 잘 어울릴 아이템",
+                items: [["클래식 라인", "오래 들어도 질리지 않는 형태와 컬러를 우선으로 확인해보세요"], ["컨디션 좋은 매물", "구성품, 사용감, 보관 상태까지 꼼꼼히 비교하면 만족도가 올라가요"], ["로고리스 백", "브랜드보다 소재와 실루엣이 먼저 보이는 조용한 명품이 잘 맞아요"]],
+                recoPoint3: "구성품과 컨디션이 좋은 클래식 아이템을 확인해보세요"
+            },
+            SMART: {
+                metrics: [["가격성", 94, "fa-solid fa-won-sign"], ["투자성", 72, "fa-solid fa-arrow-trend-up"], ["브랜드", 68, "fa-regular fa-bookmark"], ["트렌드", 58, "fa-regular fa-star"]],
+                itemBoxTitle: "👑 가격 조건 밸런스형인 당신에게 잘 어울릴 아이템",
+                items: [["가격 메리트템", "같은 예산 안에서 더 좋은 컨디션과 구성을 가진 매물을 비교해보세요"], ["인기 실속템", "유행은 타지만 활용도도 높은 아이템을 보면 만족도가 높아요"], ["컨디션 우수 매물", "가격만 보지 말고 사용감과 구성품까지 함께 확인해보세요"]],
+                recoPoint3: "내 예산 안에서 가장 만족도 높은 명품을 확인해보세요"
+            }
+        };
+
         // 3. Application State Variables
         let currentStep = 0; // 'home', 'test', 'loading', 'result'
         let userAnswers = []; // Array to collect 'A' or 'B'
@@ -1293,6 +1507,33 @@
                 if (subTitleEl) subTitleEl.innerText = matchedPersona.subTitle;
                 document.getElementById('result-main-title').innerHTML = matchedPersona.mainTitle;
                 document.getElementById('result-tags').innerText = matchedPersona.tags;
+
+                const resultContent = resultPageContent[bestMatchKey] || resultPageContent.RARE;
+                if (resultContent.metrics) {
+                    resultContent.metrics.forEach((metric, index) => {
+                        const metricIndex = index + 1;
+                        const labelEl = document.getElementById(`result-metric-${metricIndex}-label`);
+                        const fillEl = document.getElementById(`result-metric-${metricIndex}-fill`);
+                        const valueEl = document.getElementById(`result-metric-${metricIndex}-value`);
+                        const iconEl = document.getElementById(`result-metric-${metricIndex}-icon`);
+                        if (labelEl) labelEl.innerText = metric[0];
+                        if (fillEl) fillEl.style.width = `${metric[1]}%`;
+                        if (valueEl) valueEl.innerText = metric[1];
+                        if (iconEl) iconEl.className = metric[2];
+                    });
+                }
+                const itemBoxTitle = document.getElementById('result-item-box-title');
+                if (itemBoxTitle) itemBoxTitle.innerText = resultContent.itemBoxTitle;
+                if (resultContent.items) {
+                    resultContent.items.forEach((item, index) => {
+                        const itemIndex = index + 1;
+                        const titleEl = document.getElementById(`result-item-${itemIndex}-title`);
+                        const copyEl = document.getElementById(`result-item-${itemIndex}-copy`);
+                        if (titleEl) titleEl.innerText = item[0];
+                        if (copyEl) copyEl.innerText = item[1];
+                    });
+                }
+
                 const resultMascot = document.getElementById('result-mascot');
                 resultMascot.className = `mascot ${matchedPersona.mascot || 'mascot-dog'}`;
                 const descriptionEl = document.getElementById('result-description');
@@ -1316,6 +1557,8 @@
                 if (recoCopy) recoCopy.innerText = matchedPersona.goodMatch;
                 if (recoPoint1) recoPoint1.innerText = matchedPersona.recoPoints?.[0] || matchedPersona.traits[0];
                 if (recoPoint2) recoPoint2.innerText = matchedPersona.recoPoints?.[1] || matchedPersona.traits[1];
+                const recoPoint3 = document.getElementById('result-reco-point-3');
+                if (recoPoint3) recoPoint3.innerText = resultContent?.recoPoint3 || matchedPersona.traits[2];
                 const product1Brand = document.getElementById('result-product-1-brand');
                 const product1Name = document.getElementById('result-product-1-name');
                 const product2Brand = document.getElementById('result-product-2-brand');
