@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 명품 페르소나 찾기 | 시크먼트</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter & Playfair Display for Premium Look, Noto Sans KR for Korean -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -704,7 +701,7 @@
             align-items: center;
             justify-content: center;
         }
-        /* [수정] 레이저 바 슬림화(2px) 및 끝이 흐려지는 소프트 다홍빛 그라데이션 */
+        /* 레이저 바 슬림화(2px) 및 끝이 흐려지는 소프트 다홍빛 그라데이션 */
         .scan-laser {
             position: absolute;
             left: 0;
@@ -755,19 +752,15 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-neutral-800 selection:text-white">
 
-<!-- MAIN CONTAINER (Single Section Architecture) -->
-    <main class="flex-grow flex items-center justify-center p-4 md:p-8">
+<main class="flex-grow flex items-center justify-center p-4 md:p-8">
         <div class="w-full max-w-lg bg-[#FFFDFF] rounded-[28px] premium-border premium-shadow-lg p-6 md:p-8 relative overflow-hidden my-4">
             
-            <!-- [화면 1] 메인 홈 (Landing View) -->
             <div id="view-home" class="fade-transition opacity-100 flex flex-col items-center text-center py-6">
-                <!-- Animated Luxury Gold Capsule -->
                 <div class="luxury-capsule mb-4 inline-flex items-center gap-2 gold-capsule text-[#211D19] border text-xs font-bold rounded-full uppercase tracking-wider">
                     <span class="luxury-capsule-dot inline-block rounded-full bg-[#E6C229]"></span>
                     FIND YOUR IDENTITY
                 </div>
                 
-                <!-- Luxury Font Shuffle Visual Header -->
                 <h1 class="text-2xl md:text-3xl font-extrabold text-neutral-900 tracking-tight leading-tight mb-4">
                     쇼핑 하기 전 알아보는<br>
                     <span class="serif-title italic font-normal gold-accent border-b-4 gold-border">나의 명품 아이덴티티</span>
@@ -778,18 +771,13 @@
                     당신은 어떤 기준으로 소비하는 사람일까요?
                 </p>
 
-                <!-- Main Card Illustration Mockup (다홍색 슬림 레이저 바 + 중앙 싱크 교체 연출) -->
                 <div class="w-full bg-[#FFFDF0] border-2 border-[#211D19] rounded-[18px] p-6 mb-8 relative overflow-hidden h-64 flex items-center justify-center">
                     <div class="scan-container">
                         <div class="scan-laser"></div>
-                        <!-- 아이콘 구성 요소 (가방, 명품 하이힐 구두, 다이아몬드 반지) -->
                         <i class="fa-solid fa-bag-shopping rotate-icon active" id="icon-bag"></i>
-                        <i class="fa-solid fa-shoe-prints rotate-icon" id="icon-shoe" style="transform: rotate(-25deg);"></i> <!-- 구두 이모지 느낌의 각도 연출 -->
-                        <i class="fa-solid fa-gem rotate-icon" id="icon-ring"></i> <!-- 다이아몬드 강조형 링 대용 -->
-                    </div>
+                        <i class="fa-solid fa-shoe-prints rotate-icon" id="icon-shoe" style="transform: rotate(-25deg);"></i> <i class="fa-solid fa-gem rotate-icon" id="icon-ring"></i> </div>
                 </div>
 
-                <!-- CTA Button -->
                 <button onclick="startTest()" class="w-full bg-[#211D19] text-white hover:bg-[#3A332C] text-base font-bold py-4 rounded-xl premium-border premium-shadow premium-shadow-hover transition duration-150 flex items-center justify-center gap-2">
                     <span>아이텐티티 확인하러 가기 -&gt;</span>
                 </button>
@@ -800,17 +788,13 @@
                 </div>
             </div>
 
-            <!-- [화면 2] 테스트 진행 중 (In-Test UX View) -->
             <div id="view-test" class="hidden opacity-0 fade-transition q-theme-0">
-                <!-- Status & Progress Indicator -->
                 <div class="mb-6 mt-[50px]">
                     <div class="flex items-center gap-3">
                         <span id="current-question-indicator" class="text-xs font-extrabold text-[#211D19] shrink-0">
                             Q. 1 / 7
                         </span>
-                        <!-- Outer bar -->
                         <div class="w-full h-4 bg-[#FFFDFF] rounded-full border-2 border-[#211D19] overflow-hidden p-0.5">
-                            <!-- Dynamic Inner progress bar -->
                             <div id="progress-bar-fill" class="h-full dynamic-progress-fill rounded-full transition-all duration-300 progress-striped" style="width: 14.3%;"></div>
                         </div>
                     </div>
@@ -821,14 +805,11 @@
                     </div>
                 </div>
 
-                <!-- Question Text -->
                 <h2 id="question-text" class="text-lg md:text-xl font-bold text-[#211D19] leading-relaxed text-center mb-6">
                         다음 달 있을 동창회,<br>내가 들고 가고 싶은 가방은?
                     </h2>
 
-                <!-- Multiple Choice Button Cards -->
                 <div class="flex flex-col gap-4 mt-8">
-                    <!-- Option A -->
                     <button id="option-a-btn" onclick="handleSelectAnswer('A')" class="w-full text-left bg-[#FFFCF6] dynamic-option-btn p-5 rounded-[18px] border-2 border-[#211D19] premium-shadow premium-shadow-hover transition duration-150 flex items-center gap-4">
                         <span class="w-6 h-6 rounded-full bg-[#211D19] text-white flex items-center justify-center text-xs font-bold leading-none shrink-0">A</span>
                         <span id="option-a-text" class="text-sm md:text-base font-semibold text-[#211D19] leading-normal">
@@ -836,7 +817,6 @@
                         </span>
                     </button>
 
-                    <!-- Option B -->
                     <button id="option-b-btn" onclick="handleSelectAnswer('B')" class="w-full text-left bg-[#FFFCF6] dynamic-option-btn p-5 rounded-[18px] border-2 border-[#211D19] premium-shadow premium-shadow-hover transition duration-150 flex items-center gap-4">
                         <span class="w-6 h-6 rounded-full border-2 border-[#211D19] bg-[#FFFDFF] text-[#211D19] flex items-center justify-center text-xs font-bold leading-none shrink-0">B</span>
                         <span id="option-b-text" class="text-sm md:text-base font-semibold text-[#211D19] leading-normal">
@@ -845,7 +825,6 @@
                     </button>
                 </div>
 
-                <!-- Back button -->
                 <div class="mt-8 flex justify-center">
                     <button onclick="goPrevQuestion()" id="prev-btn" class="text-xs font-bold text-neutral-400 hover:text-neutral-900 transition flex items-center gap-1.5 py-1">
                         <i class="fa-solid fa-arrow-left text-[10px]"></i>
@@ -854,7 +833,6 @@
                 </div>
             </div>
 
-            <!-- [로딩 화면] (Bridge Page) -->
             <div id="view-loading" class="hidden opacity-0 fade-transition py-12 flex flex-col items-center justify-center text-center">
                 <div class="relative w-24 h-24 mb-6">
                     <div class="absolute inset-0 rounded-full border-4 border-amber-100"></div>
@@ -870,7 +848,6 @@
                 </p>
             </div>
 
-            <!-- [화면 3] 결과 페이지 및 최종 Action UX (Result View) -->
             <div id="view-result" class="hidden opacity-0 fade-transition pb-5 result-purple text-center">
                     <div class="result-hero-paper mx-5 mt-[22px] px-5 pt-6 pb-7 text-center">
                         <span class="result-pill inline-flex items-center justify-center rounded-full border px-4 py-1 text-[10px] font-black tracking-[0.16em] uppercase">
@@ -914,7 +891,6 @@
                             <li class="flex gap-3"><span class="result-check"><i class="fa-solid fa-check"></i></span><span id="result-trait-3">마음에 들면 오래 고민하지 않는 편이에요</span></li>
                         </ul>
 
-                        <!-- 오리지널 스케일 컨테이너 백업 유지 -->
                         <div class="hidden">
                             <span id="result-stat-1-label">희소성</span><div id="result-stat-1-fill"></div>
                             <span id="result-stat-2-label">속도</span><div id="result-stat-2-fill"></div>
@@ -991,7 +967,6 @@
         </div>
     </main>
 
-    <!-- Custom Toast Alert Notification Container -->
     <div id="toast-container" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-[100] pointer-events-none transition-all duration-300 opacity-0 translate-y-4">
         <div id="toast-message" class="bg-neutral-900 text-white text-xs md:text-sm font-semibold px-6 py-3 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
             <i class="fa-solid fa-circle-check text-green-400"></i>
@@ -1000,9 +975,8 @@
     </div>
 
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // [수정] 레이저 바 이동 속도(왕복 2초)에 최적화된 동기화 로테이션 시스템
+        // 레이저 바 이동 속도(왕복 2초)에 최적화된 동기화 로테이션 시스템
         const landingIcons = ['icon-bag', 'icon-shoe', 'icon-ring'];
         let currentIconIdx = 0;
 
@@ -1021,7 +995,6 @@
         // 레이저 바가 정중앙을 지나치는 시점(0.5초 내려갈 때 중앙, 1.5초 올라올 때 중앙)에 맞추어 아이콘 교체 트리거
         setTimeout(() => {
             rotateLandingIcons();
-            // 이후 왕복 주기인 1000ms(1초)마다 레이저가 중앙을 통과할 때마다 일정하게 변경되도록 조율
             setInterval(rotateLandingIcons, 1000);
         }, 500);
 
@@ -1110,7 +1083,7 @@
                 mascot: "mascot-cat",
                 tags: "#착샷중요 #아이코닉백 #첫눈에반함",
                 traits: ["실제로 들었을 때의 분위기를 중요하게 봐요", "아이코닉한 디자인에 자연스럽게 끌려요", "마음에 들면 빠르게 행동하는 편이에요"],
-                stats: [["무드 감지", 90], ["트렌드 민감도", 78], ["실용 체크", 52]],
+                stats: [["무드 감지", 90], ["트렌드敏감도", 78], ["실용 체크", 52]],
                 goodFriend: "사진 잘 찍는 친구",
                 badFriend: "스펙만 보는 친구",
                 quote: "예쁜 이유는 착용했을 때 바로 보여요.",
@@ -1181,12 +1154,11 @@
         }
         // 4. Start the quiz flow
         function startTest() {
-
-            // Change View Home -> Test View
-            transitionView('view-home', 'view-test');
             currentStep = 0;
             userAnswers = [];
+            // [수정] 화면 전환 애니메이션 진행 중 1번 문항 데이터가 정상 반영되어 있도록 함수 배치 순서 조정
             loadQuestion();
+            transitionView('view-home', 'view-test');
         }
 
         // 5. Render active question
