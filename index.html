@@ -1156,16 +1156,25 @@
         function startTest() {
             currentStep = 0;
             userAnswers = [];
-            // [수정] 1번 문항 데이터를 먼저 DOM에 완벽 세팅
-            loadQuestion();
-            
-            // [수정] 겹침 현상을 막기 위해 홈 화면을 먼저 완벽히 투명화(페이드아웃) 한 뒤 0.15초 후 전환 함수 실행
+
             const homeView = document.getElementById('view-home');
-            if(homeView) {
+            const testView = document.getElementById('view-test');
+
+            // 1번 문항이 시작 페이지 아래에 먼저 노출되지 않도록,
+            // 질문 데이터 세팅 전후 모두 테스트 화면은 숨김 상태를 유지합니다.
+            if (testView) {
+                testView.classList.add('hidden', 'opacity-0');
+                testView.classList.remove('opacity-100');
+            }
+
+            loadQuestion();
+
+            if (homeView) {
                 homeView.classList.add('opacity-0');
+
                 setTimeout(() => {
                     transitionView('view-home', 'view-test');
-                }, 150);
+                }, 300);
             } else {
                 transitionView('view-home', 'view-test');
             }
@@ -1177,7 +1186,8 @@
             const testView = document.getElementById('view-test');
             
             const themeIndex = currentStep % 4;
-            testView.className = `fade-transition opacity-100 q-theme-${themeIndex}`;
+            testView.classList.remove('q-theme-0', 'q-theme-1', 'q-theme-2', 'q-theme-3');
+            testView.classList.add(`q-theme-${themeIndex}`);
             
             // Update Text content
             document.getElementById('current-question-indicator').innerText = `Q. ${currentStep + 1} / ${questions.length}`;
