@@ -691,7 +691,7 @@
         }
 
         /* ---------------------------------------------------- */
-        /* [추가/수정] 옐로우/골드 테마 및 다홍색 레이저 스타일 */
+        /* [디테일 커스텀] 옐로우 테마 / 다홍색 소프트 레이저 지정 */
         /* ---------------------------------------------------- */
         .gold-accent { color: #D4AF37; }
         .gold-border { border-color: #D4AF37; }
@@ -704,29 +704,30 @@
             align-items: center;
             justify-content: center;
         }
-        /* 레이저 스캔 라인을 다홍색(#FF4500)으로 설정 */
+        /* [수정] 레이저 바 슬림화(2px) 및 끝이 흐려지는 소프트 다홍빛 그라데이션 */
         .scan-laser {
             position: absolute;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #FF4500, #FF6347, #FF4500, transparent);
-            box-shadow: 0 0 14px 4px rgba(255, 69, 0, 0.85);
-            animation: scanMove 2.6s ease-in-out infinite;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255,69,0,0.02), rgba(255,69,0,0.5), #FF5533, rgba(255,69,0,0.5), rgba(255,69,0,0.02));
+            box-shadow: 0 0 10px 2px rgba(255, 69, 0, 0.4);
+            animation: scanMove 2s ease-in-out infinite; /* 주기를 2초로 지정 */
             z-index: 10;
         }
+        /* 2초 주기로 위아래 스캔 연출 */
         @keyframes scanMove {
-            0%, 100% { top: 8%; opacity: 0.4; }
-            50% { top: 92%; opacity: 1; }
+            0%, 100% { top: 10%; }
+            50% { top: 90%; }
         }
-        /* 아이콘 오브젝트 (가방 -> 하이힐 -> 반지) */
+        /* 명품 3종 아이콘 컴포넌트 */
         .rotate-icon {
             position: absolute;
-            font-size: 4.8rem;
+            font-size: 5rem;
             color: #211D19;
             opacity: 0;
-            transform: scale(0.88);
-            transition: opacity 0.45s ease-in-out, transform 0.45s ease-in-out;
+            transform: scale(0.9);
+            transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
             z-index: 5;
         }
         .rotate-icon.active {
@@ -734,11 +735,11 @@
             transform: scale(1);
         }
 
-        /* [추가] 결과 4색 밸런스 순환 매핑용 클래스 */
-        .q-theme-0 { --q-accent: #D25F7A; --q-soft: #FDF2F5; } /* 다홍/레드 */
-        .q-theme-1 { --q-accent: #10B981; --q-soft: #ECFDF5; } /* 그린 */
-        .q-theme-2 { --q-accent: #D4AF37; --q-soft: #FFFDF0; } /* 골드 */
-        .q-theme-3 { --q-accent: #8D65B7; --q-soft: #F4EDF8; } /* 퍼플 */
+        /* 결과 4색 밸런스 순환 매핑용 클래스 */
+        .q-theme-0 { --q-accent: #D25F7A; --q-soft: #FDF2F5; } 
+        .q-theme-1 { --q-accent: #10B981; --q-soft: #ECFDF5; } 
+        .q-theme-2 { --q-accent: #D4AF37; --q-soft: #FFFDF0; } 
+        .q-theme-3 { --q-accent: #8D65B7; --q-soft: #F4EDF8; } 
 
         .dynamic-question-visual {
             background-color: var(--q-soft, #F4EDF8);
@@ -777,14 +778,14 @@
                     당신은 어떤 기준으로 소비하는 사람일까요?
                 </p>
 
-                <!-- Main Card Illustration Mockup (단일 박스 + 다홍색 레이저 + 3종 로테이션) -->
+                <!-- Main Card Illustration Mockup (다홍색 슬림 레이저 바 + 중앙 싱크 교체 연출) -->
                 <div class="w-full bg-[#FFFDF0] border-2 border-[#211D19] rounded-[18px] p-6 mb-8 relative overflow-hidden h-64 flex items-center justify-center">
                     <div class="scan-container">
                         <div class="scan-laser"></div>
-                        <!-- 아이콘 구성원 교체 (가방, 하이힐, 반지) -->
+                        <!-- 아이콘 구성 요소 (가방, 명품 하이힐 구두, 다이아몬드 반지) -->
                         <i class="fa-solid fa-bag-shopping rotate-icon active" id="icon-bag"></i>
-                        <i class="fa-solid fa-shoe-prints rotate-icon" id="icon-shoe"></i>
-                        <i class="fa-solid fa-ring rotate-icon" id="icon-ring"></i>
+                        <i class="fa-solid fa-shoe-prints rotate-icon" id="icon-shoe" style="transform: rotate(-25deg);"></i> <!-- 구두 이모지 느낌의 각도 연출 -->
+                        <i class="fa-solid fa-gem rotate-icon" id="icon-ring"></i> <!-- 다이아몬드 강조형 링 대용 -->
                     </div>
                 </div>
 
@@ -913,7 +914,7 @@
                             <li class="flex gap-3"><span class="result-check"><i class="fa-solid fa-check"></i></span><span id="result-trait-3">마음에 들면 오래 고민하지 않는 편이에요</span></li>
                         </ul>
 
-                        <!-- 미사용 분석 스케일 슬라이더 컨테이너 요소 백업 유지 -->
+                        <!-- 오리지널 스케일 컨테이너 백업 유지 -->
                         <div class="hidden">
                             <span id="result-stat-1-label">희소성</span><div id="result-stat-1-fill"></div>
                             <span id="result-stat-2-label">속도</span><div id="result-stat-2-fill"></div>
@@ -1001,7 +1002,7 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // 랜딩 페이지 이미지 로테이션 용도
+        // [수정] 레이저 바 이동 속도(왕복 2초)에 최적화된 동기화 로테이션 시스템
         const landingIcons = ['icon-bag', 'icon-shoe', 'icon-ring'];
         let currentIconIdx = 0;
 
@@ -1016,7 +1017,13 @@
             const nextEl = document.getElementById(nextId);
             if (nextEl) nextEl.classList.add('active');
         }
-        setInterval(rotateLandingIcons, 2000);
+
+        // 레이저 바가 정중앙을 지나치는 시점(0.5초 내려갈 때 중앙, 1.5초 올라올 때 중앙)에 맞추어 아이콘 교체 트리거
+        setTimeout(() => {
+            rotateLandingIcons();
+            // 이후 왕복 주기인 1000ms(1초)마다 레이저가 중앙을 통과할 때마다 일정하게 변경되도록 조율
+            setInterval(rotateLandingIcons, 1000);
+        }, 500);
 
         // 1. Data Definitions for Questions and Answers
         const questions = [
@@ -1182,12 +1189,11 @@
             loadQuestion();
         }
 
-        // 5. Render active question (결과 4색의 매핑 순환 로직 연동)
+        // 5. Render active question
         function loadQuestion() {
             const currentQuestion = questions[currentStep];
             const testView = document.getElementById('view-test');
             
-            // 테마 인덱스 분배 적용 (0: 다홍, 1: 그린, 2: 골드, 3: 퍼플)
             const themeIndex = currentStep % 4;
             testView.className = `fade-transition opacity-100 q-theme-${themeIndex}`;
             
@@ -1390,7 +1396,6 @@
         }
 
         function copyPageLink() {
-            // Simulating URL copying considering iframe environments
             const dummy = document.createElement('input');
             const text = window.location.href;
             
@@ -1407,18 +1412,14 @@
             showToast("인스타 공유용 결과 이미지를 준비해 주세요. 지원 환경에서는 공유 시트를 사용할 수 있어요.");
         }
         function shareKakao() {
-            // Kakao share mockup (Since real SDK needs registered App Key, showing custom simulation)
             showToast("카카오톡으로 진단 결과 카드 전송 완료! 💌");
         }
 
-        // 오리지널 index.html에 동봉된 고유 함수 정의값 보존
         function downloadStoryImage() {
             showToast("인스타그램 스토리 규격 이미지 저장 완료! 📸");
         }
 
-        // Initialize state on window load
         window.onload = function () {
-            // Set up viewport or initial conditions if needed
         };
     </script>
 </body>
