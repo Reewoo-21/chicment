@@ -907,11 +907,11 @@
                     <div class="scan-container">
                         <div class="scan-laser"></div>
                         <i class="fa-solid fa-bag-shopping rotate-icon active" id="icon-bag"></i>
-                        <i class="fa-solid fa-shoe-prints rotate-icon" id="icon-shoe" style="transform: rotate(-25deg);"></i> <i class="fa-solid fa-gem rotate-icon" id="icon-ring"></i> </div>
+                        <i class="fa-solid fa-shoe-prints rotate-icon" id="icon-heart" style="transform: rotate(-25deg);"></i> <i class="fa-solid fa-gem rotate-icon" id="icon-ring"></i> </div>
                 </div>
 
                 <button onclick="startTest()" class="w-full bg-[#211D19] text-white hover:bg-[#3A332C] text-base font-bold py-4 rounded-xl premium-border premium-shadow premium-shadow-hover transition duration-150 flex items-center justify-center gap-2">
-                    <span>아이텐티티 확인하러 가기 -&gt;</span>
+                    <span>테스트 시작하기 -&gt;</span>
                 </button>
                 
                 <div class="mt-4 text-[11px] text-neutral-400 flex items-center gap-1">
@@ -1190,46 +1190,46 @@
         // 1. Data Definitions for Questions and Answers
         const questions = [
             {
-                text: "다음 달 있을 동창회, 내가 들고 가고 싶은 가방은?",
+                text: "다음 달 있을 동창회,<br>내가 들고 가고 싶은 가방은?",
                 icon: "fa-bag-shopping",
                 A: "멀리서도 브랜드가 보이는 아이코닉 백",
                 B: "아는 사람만 알아보는 조용한 명품, 로고리스 백"
             },
             {
-                text: "고가의 첫 명품 가방을 사려고 합니다. 당신의 생각은?",
+                text: "첫 명품 가방을 사려고 합니다.<br>나의 선택은?",
                 icon: "fa-gem",
-                A: "처음이니까 내 마음에 쏙 드는 걸로 사야지",
-                B: "오래 가지고 있어도 가치 있는 브랜드로 골라야지"
+                A: "지금 내 마음에 쏙 드는 걸로 사야지",
+                B: "10년 뒤에도 가치 있는 걸로 골라야지"
             },
             {
-                text: "백화점에서 가방을 구매하기 전 내가 해야할 일은?",
+                text: "백화점에서 마음에 드는 걸 발견했다.<br>내가 할 일은?",
                 icon: "fa-store",
-                A: "실제 착샷, 후기 찾아보기",
+                A: "스타일링 후기/사용 후기 찾아보기",
                 B: "백화점/면세점 프로모션 찾아보기"
             },
             {
-                text: "몇 가지 후보 중에 고민이 된다. 당신의 결정은?",
+                text: "몇 가지 후보 중에 고민이 된다.<br>나의 결정은?",
                 icon: "fa-scale-balanced",
-                A: "착용했을 때 제일 예쁜 게 답이지",
-                B: "소재, 무게, 크기 다 완벽하다 이걸로 해야지"
+                A: "착용했을 때 예쁜 게 답이지",
+                B: "소재, 크기 다 완벽하다 이걸로 해야지"
             },
             {
-                text: "셀러에게 들었을 때 가장 설레는 문장은?",
+                text: "셀러에게 들었을 때<br>가장 설레는 문장은?",
                 icon: "fa-comment-dots",
-                A: "몇 개 안 들어와서 구하기 어려운 모델이에요",
-                B: "비밀인데.. 이 가격대로는 곧 보기 어려울 수 있어요"
+                A: "한국에 몇개 안 들어온 모델이에요",
+                B: "이 가격대로는 곧 보기 어려울 수 있어요"
             },
             {
-                text: "매장에서 원하는 제품을 찾지 못했다가 유저 거래 사이트에서 원하던 명품을 발견했다! 내가 행복한 이유는?",
+                text: "유저 거래 사이트에서<br>원하던 제품을 발견했다!<br>내가 행복한 이유는?",
                 icon: "fa-magnifying-glass",
-                A: "공홈에는 없는 단종/희소템을 찾았다",
-                B: "같은 예산으로 더 좋은 선택지를 발견했다"
+                A: "공홈에는 없는 단종/희귀템을 찾았다",
+                B: "미개봉 제품을 20% 저렴하게 발견했다"
             },
             {
-                text: "오랜만에 만난 동창이 내 가방을 보며 '가방 예쁘다, 이거 비싼 거 아니야?'라고 물어본다면?",
+                text: "오랜만에 만난 동창이<br>'가방 예쁘다, 이거 비싼 거 아니야?'<br>라고 물어본다면?",
                 icon: "fa-user-group",
                 A: "응! 첫눈에 반해서 샀어",
-                B: "고민하긴 했는데 스펙이 괜찮더라고~"
+                B: "고민하긴 했는데 퀄리티가 괜찮더라고~"
             }
         ];
 
