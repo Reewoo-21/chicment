@@ -911,6 +911,29 @@
         #result-one-liner {
             color: #5F5750;
         }
+
+        /* Mobile touch fix: prevent sticky hover / pre-selection visual reaction */
+        @media (hover: none), (pointer: coarse) {
+            .premium-shadow-hover:hover {
+                transform: none !important;
+                box-shadow: 5px 5px 0px 0px #211D19 !important;
+            }
+            .premium-shadow-hover:active {
+                transform: translate(1px, 1px) !important;
+                box-shadow: 4px 4px 0px 0px #211D19 !important;
+            }
+            .dynamic-option-btn:hover {
+                background-color: #FFFCF6 !important;
+            }
+            .dynamic-option-btn:active {
+                background-color: var(--q-soft, #F7F1FF) !important;
+            }
+            button,
+            a {
+                -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-neutral-800 selection:text-white">
