@@ -70,6 +70,17 @@
             box-shadow: 5px 5px 0px 0px #211D19;
             transition: background-color 0.4s ease, border-color 0.4s ease;
         }
+        /* <br>을 심은 위치에서만 줄바꿈되도록 고정 */
+        #question-text,
+        #result-main-title {
+            white-space: nowrap;
+            word-break: keep-all;
+        }
+        #question-text br,
+        #result-main-title br {
+            display: block;
+            content: '';
+        }
         .ending-card {
             --result-accent: #B88A2C;
             --result-soft: #F8F0D8;
@@ -907,7 +918,9 @@
                     <div class="scan-container">
                         <div class="scan-laser"></div>
                         <i class="fa-solid fa-bag-shopping rotate-icon active" id="icon-bag"></i>
-                        <i class="fa-solid fa-shoe-prints rotate-icon" id="icon-heart" style="transform: rotate(-25deg);"></i> <i class="fa-solid fa-gem rotate-icon" id="icon-ring"></i> </div>
+                        <i class="fa-solid fa-gem rotate-icon" id="icon-gem"></i>
+                        <i class="fa-solid fa-crown rotate-icon" id="icon-crown"></i>
+                    </div>
                 </div>
 
                 <button onclick="startTest()" class="w-full bg-[#211D19] text-white hover:bg-[#3A332C] text-base font-bold py-4 rounded-xl premium-border premium-shadow premium-shadow-hover transition duration-150 flex items-center justify-center gap-2">
@@ -1148,8 +1161,8 @@
                        href="https://chicment.com"
                        target="_blank"
                        rel="noopener noreferrer"
-                       class="fixed left-1/2 bottom-6 z-50 w-[85%] max-w-[400px] -translate-x-1/2 bg-[#050505] text-white text-sm md:text-base font-extrabold py-6 px-5 rounded-xl text-center shadow-[0_6px_0_0_#1A1A1A]">
-                        요즘 유행하는 명품 구경가기 >
+                       class="fixed left-1/2 bottom-6 z-50 w-[85%] max-w-[400px] -translate-x-1/2 bg-[#050505] text-white text-sm md:text-base font-extrabold py-[19px] px-5 rounded-xl text-center shadow-[0_6px_0_0_#1A1A1A]">
+                        요즘 유행하는 명품 보러가기 >
                     </a>
                 </div>
 
@@ -1166,7 +1179,7 @@
 
     <script>
         // 레이저 바 이동 속도(왕복 2초)에 최적화된 동기화 로테이션 시스템
-        const landingIcons = ['icon-bag', 'icon-shoe', 'icon-ring'];
+        const landingIcons = ['icon-bag', 'icon-gem', 'icon-crown'];
         let currentIconIdx = 0;
 
         function rotateLandingIcons() {
@@ -1358,16 +1371,7 @@
         let userAnswers = []; // Array to collect 'A' or 'B'
 
         function formatQuestionText(text) {
-            if (text.includes(',')) {
-                return text.replace(/,\s*/, ',<br>');
-            }
-
-            const target = Math.ceil(text.length / 2);
-            const breakIndex = text.indexOf(' ', target);
-            if (breakIndex > -1) {
-                return `${text.slice(0, breakIndex)}<br>${text.slice(breakIndex + 1)}`;
-            }
-
+            // 자동 줄바꿈을 만들지 않고, 데이터에 직접 심은 <br>만 반영합니다.
             return text;
         }
         // 4. Start the quiz flow
@@ -1570,7 +1574,7 @@
                 const resultCta = document.getElementById('result-cta');
                 const resultInlineCta = document.getElementById('result-inline-cta');
                 const resultTipCta = document.getElementById('result-tip-cta');
-                resultCta.innerText = matchedPersona.ctaText;
+                resultCta.innerText = '요즘 유행하는 명품 보러가기 >';
                 resultCta.href = matchedPersona.ctaUrl;
                 if (resultInlineCta) {
                     resultInlineCta.innerText = matchedPersona.ctaText;
